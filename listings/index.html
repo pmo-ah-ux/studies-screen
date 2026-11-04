@@ -108,8 +108,8 @@ var DATA = {"updated": "2026-11-04 14:16", "current_month": 11, "monthly": [{"mo
       t.appendChild(el('span', 'kpi-n', fmt(n)));
       var l = el('span', 'kpi-l', label); if (extra) l.appendChild(el('b', null, extra)); t.appendChild(l); k.appendChild(t);
     }
-    tile(d3.sum(months, function (m) { return m.records || 0; }), 'إجمالي العقارات 2026', null, '#86AEDC');
     tile(total, 'إجمالي الإدراجات 2026', null, null, 'main');
+    tile(d3.sum(months, function (m) { return m.records || 0; }), 'إجمالي العقارات 2026', null, '#86AEDC');
   }
 
   function list() {
