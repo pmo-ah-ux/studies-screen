@@ -160,8 +160,8 @@ window.__RAW = {"tasks": [{"employee": "أحمد السقاف", "study": "الد
     const svg = d3.select(el).append('svg').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', 'عدد الإدراجات في كل مرحلة');
     const g = svg.append('g').selectAll('g').data(data).join('g').attr('transform', (d) => `translate(0,${y(d.stage)})`);
     const fsl = Math.min(fs, y.bandwidth() * 0.62);
-    g.append('text').attr('x', W).attr('y', y.bandwidth() / 2 + fsl * 0.35).attr('text-anchor', 'start').attr('direction', 'rtl').attr('fill', (d) => (isStudy(d.stage) ? '#14284B' : '#5E5E5E'))
-      .style('font-size', fsl + 'px').style('font-weight', (d) => (isStudy(d.stage) ? '700' : '500')).text((d) => d.stage);
+    g.append('text').attr('x', W).attr('y', y.bandwidth() / 2 + fsl * 0.35).attr('text-anchor', 'start').attr('direction', 'rtl').attr('fill', '#14284B')
+      .style('font-size', fsl + 'px').style('font-weight', '600').text((d) => d.stage);
     g.append('rect').attr('rx', u * 0.18).attr('x', (d) => W - labW - Math.max(2, x(d.count))).attr('width', (d) => Math.max(2, x(d.count))).attr('height', y.bandwidth()).attr('fill', (d) => (d.count > 50 ? '#D64545' : isStudy(d.stage) ? '#14284B' : '#C4C8CC'));
     g.append('text').attr('x', (d) => W - labW - Math.max(2, x(d.count)) - u * 0.4).attr('y', y.bandwidth() / 2 + fsl * 0.35).attr('text-anchor', 'end').attr('direction', 'ltr').attr('fill', (d) => (d.count > 50 ? '#D64545' : '#2E2E2E'))
       .style('font-size', fsl * 1.05 + 'px').style('font-weight', '700').style('font-variant-numeric', 'tabular-nums').text((d) => fmt(d.count));
