@@ -31,7 +31,8 @@ html, body { margin: 0; height: 100%; background: var(--bg); overflow: hidden; }
 .logo { height: calc(5.6 * var(--u)); width: auto; position: relative; z-index: 1; }
 .side { display: flex; flex-direction: column; min-height: 0; }
 .kpis { flex: 0 0 calc(8.4 * var(--u)); display: flex; margin-bottom: calc(1.1 * var(--u)); }
-.kpis .kpi { flex: 1 1 auto; }
+.kpis .kpi { flex: 1 1 0; }
+.kpis .kpi + .kpi { margin-right: calc(.9 * var(--u)); }
 #top { flex: 1 1 auto; }
 .kpi { background: #fff; border-top: calc(.45 * var(--u)) solid var(--k, #5E5E5E); border-radius: calc(.6 * var(--u)); box-shadow: 0 calc(.25 * var(--u)) calc(.9 * var(--u)) rgba(20,40,75,.10);
   display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 0; }
@@ -107,6 +108,7 @@ var DATA = {"updated": "2026-11-04 14:16", "current_month": 11, "monthly": [{"mo
       t.appendChild(el('span', 'kpi-n', fmt(n)));
       var l = el('span', 'kpi-l', label); if (extra) l.appendChild(el('b', null, extra)); t.appendChild(l); k.appendChild(t);
     }
+    tile(d3.sum(months, function (m) { return m.records || 0; }), 'إجمالي العقارات 2026', null, '#86AEDC');
     tile(total, 'إجمالي الإدراجات 2026', null, null, 'main');
   }
 
